@@ -165,13 +165,6 @@ export const PRODUCTS: Product[] = [
     image: "/images/speaker.jpeg",
   },
   {
-    id: "p10",
-    title: "Nebula VR Headset",
-    description: "All-in-one VR headset with high resolution display.",
-    price: 399.99,
-    image: "/images/vr-headset.jpeg",
-  },
-  {
     id: "p11",
     title: "Galaxy Wireless Charger",
     description: "Fast wireless charger compatible with Qi devices.",

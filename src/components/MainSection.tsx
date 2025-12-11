@@ -9,7 +9,7 @@ function currency(n: number) {
 export const MainSection = () => {
   const { addToCart } = useCart();
 
-  // breakpoint-based items per slide
+  // Адаптивна кількість товарів за слайд
   const [itemsPerSlide, setItemsPerSlide] = useState(1);
 
   useEffect(() => {
@@ -24,17 +24,15 @@ export const MainSection = () => {
   }, []);
 
   const [index, setIndex] = useState(0);
-
   const totalSlides = Math.ceil(PRODUCTS.length / itemsPerSlide);
+  const start = index * itemsPerSlide;
+  const visibleProducts = PRODUCTS.slice(start, start + itemsPerSlide);
 
   const next = () => setIndex((prev) => (prev + 1) % totalSlides);
   const prev = () => setIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
 
-  const start = index * itemsPerSlide;
-  const visibleProducts = PRODUCTS.slice(start, start + itemsPerSlide);
-
   return (
-    <main className="max-w-4xl mx-auto pb-40 relative select-none">
+    <main className="max-w-4xl mx-auto pb-40 relative select-none px-4 lg:px-0">
       {/* Slider container */}
       <div className="overflow-hidden relative">
         <AnimatePresence mode="wait">
@@ -102,9 +100,9 @@ export const MainSection = () => {
       <button
         onClick={prev}
         className="
-          absolute top-1/2 -translate-y-1/2 left-0
+          absolute top-1/3 -translate-y-1/2 left-2 sm:left-4 md:left-6 lg:left-8
           bg-white shadow rounded-full w-10 h-10 flex items-center justify-center
-          hover:bg-gray-100 transition
+          hover:bg-gray-100 transition z-10
         "
       >
         ←
@@ -114,9 +112,9 @@ export const MainSection = () => {
       <button
         onClick={next}
         className="
-          absolute top-1/2 -translate-y-1/2 right-0
+          absolute top-1/3 -translate-y-1/2 right-2 sm:right-4 md:right-6 lg:right-8
           bg-white shadow rounded-full w-10 h-10 flex items-center justify-center
-          hover:bg-gray-100 transition
+          hover:bg-gray-100 transition z-10
         "
       >
         →
